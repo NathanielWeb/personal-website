@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import './App.css'
 
-function Header ({ name }) {
+const Header = ({ name }) => {
     return (
-        <div>
+        <div className="header-container">
             <h1>{name}</h1>
         </div>
     );
 }
+
+export default Header
