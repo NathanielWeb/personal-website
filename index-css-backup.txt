@@ -4,40 +4,33 @@
 @tailwind components;
 @tailwind utilities;
 
-div {
-  padding: 0;
-  margin: 0;
-}
 
 main {
   min-height: 100vh;
-  min-width: 100vw;
-  top: 0;
+  position: absolute; /* This makes it so that it will actually listen to the top and left properties */
   left: 0;
-  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  overflow: clip; /*Set overflow property to this so that nav can be sticky*/
 }
 
 ul {
   list-style-type: none
 }
 
-.one-col-website, .two-col-website {
-  min-height: 100%;
-  display: grid;
-}
-
 
 .two-col-website {
   display: grid;
-  grid-template-columns: minmax(14rem, 20rem) 1fr;
+  grid-template-columns: 250px 1fr;
   grid-template-areas:
   "navbar navbar"
   "sidebar header"
   "sidebar main-content";
-  grid-template-rows: auto; 
+  grid-template-rows: 1rem 10rem 1fr; 
 }
 
 .one-col-website {
@@ -47,18 +40,19 @@ ul {
   "navbar"
   "header"
   "main-content";
+  grid-template-rows: 1rem 10rem 1fr; /* font size of text-4xl class is 2.25 rem */
 }
 
 nav {
   grid-area: navbar;
   position: sticky;
   top: 0;
-  min-height: 3rem;
+  height: 2rem;
   @apply bg-gradient-to-r from-slate-50 to-slate-200;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem;
+  padding: 0;
   margin: 0;
 }
 
@@ -81,43 +75,24 @@ button {
 
 .header-container {
   grid-area: header;
-  min-height: 6rem;
+  height: 10rem;
   top: 2rem;
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: 7rem;
   font-style: italic;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   @apply bg-gradient-to-r from-slate-50 to-slate-200
 }
 
-.section-header {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  text-align: center;
-  margin: 3rem 0 2rem;
-  letter-spacing: -0.02em;
-  color: black;
-  position: relative;
-}
 
-.section-header::after {
-  content: "";
-  display: block;
-  width: 4rem;
-  height: 0.25rem;
-  margin: 0.75rem auto 0;
-  background-color: #3b82f6;
-  border-radius: 900px;
-}
 
 
 .show-menu {
   top: 0;
   display: grid;
   grid-area: sidebar;
-  position: sticky;
+  position: fixed;
   width: 250px;
   height: 100%;
   line-height: 3rem;
@@ -151,7 +126,6 @@ button {
 
 .main-content {
   grid-area: main-content;
-  min-height: 0;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-areas: 
@@ -161,24 +135,27 @@ button {
   "education"
   "courses"
   "contacts";
-  grid-auto-rows: auto;
+  top: 7rem;
+  grid-template-rows: 30rem repeat(4, 1fr) 25rem;
   background-color: yellow;
 }
 
 .descript-section {
   grid-area: descript;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: flex-start;
   align-items: center;
-  gap: 2rem;
+  gap: 5px;
   @apply bg-gradient-to-r from-teal-100 to-emerald-300;
+  height: auto;
 }
 
 .personal-picture {
   border-radius: 50%;
   height: 400px;
-  width: min(80vw, 18rem);
-  aspect-ratio: 1 / 1;
+  width: 400px;
+  padding: 0px;
+  margin: 0;
 }
 
 
@@ -197,54 +174,35 @@ button {
 
 .projects-display {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: 2rem;
-}
-
-.project-card {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 15px;
   place-items: center;
-  max-width: 40rem;
-  margin: 2rem auto;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
 }
 
-.project-image {
-  width: 100%;
-  height: auto;
-  border-radius: 1rem;
-  object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+.project-1, .project-2, .project-3, .project-4 {
+  place-items: center
 }
 
-.project-title {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  margin: 0.5rem 0 0;
+.projects-section > h1 {
+  font-size: 5rem;
 }
 
-.project-desc {
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  line-height: 1.5;
-  color: #555;
-  margin: 0;
-}
 
 .languages-section {
   grid-area: languages;
-  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
-}
-
-.language-ordering {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: 
+  "lang-title lang-title"
   "web general"
   "framework framework";
-  gap: 3rem;
-  font-size: clamp(1.25rem, 3vw, 2.5rem);
-  
+  justify-content: center;
+  gap: 5rem;
+  font-size: 4rem;
+  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
+  min-height: 30rem;
+  align-items: center;
 }
 
 .lang-title {
@@ -281,7 +239,7 @@ button {
 }
 
 .languages-section > div > h2 {
-  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-size: 2.5rem;
 }
 
 .language-logos {
@@ -298,6 +256,10 @@ button {
   min-height: 30rem;
 }
 
+.education-section > h1 {
+  font-size: 5rem;
+}
+
 .education-section > h2 {
   font-size: 2.5rem;
 }
@@ -312,8 +274,15 @@ button {
 
 .courses-display {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+  justify-content: center;
+  align-items: flex-start;
   gap: 0;
+  grid-auto-rows: 1fr;
+}
+
+.courses-section > h1 {
+  font-size: 5rem;
 }
 
 .years > h2 {
@@ -341,6 +310,10 @@ button {
   align-items: center;
 }
 
+.contacts-section > h1 {
+  font-size: 5rem;
+}
+
 .email-link:hover {
   @apply text-teal-400
 }
@@ -352,7 +325,7 @@ button {
 
 
 
-@media(max-width: 768px) {
+@media(max-width: 700px) {
   main {
     grid-template-columns: 1fr;
   }
@@ -362,17 +335,4 @@ button {
     width: 300px;
     display: none;
   }
-}
-
-#root {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  max-width: none;
-}
-
-html, body {
-  min-height: 100%;
-  margin: 0;
 }
