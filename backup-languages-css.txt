@@ -1,0 +1,51 @@
+.languages-section {
+  grid-area: languages;
+  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
+}
+
+.language-ordering {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-areas: 
+  "frontend backend"
+  "general functional";
+  gap: 3rem;
+  font-size: clamp(1.25rem, 3vw, 2.5rem);
+  
+}
+
+.tailwindLogo {
+  font-size: 5rem;
+}
+
+.lang-title {
+  grid-area: lang-title;
+}
+
+.lang-frontend {
+  grid-area: frontend;
+}
+
+.lang-backend {
+  grid-area: backend;
+}
+
+.lang-general {
+  grid-area: general;
+}
+
+.lang-functional {
+  grid-area: functional;
+}
+
+
+.languages-section > div > h2 {
+  font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+.language-logos {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+}

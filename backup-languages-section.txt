@@ -1,14 +1,9 @@
-import { useState } from 'react'
-import './App.css'
-
-const Languages = ( {ref} ) => {
-    return (
-        <div className="languages-section">
+<div className="languages-section">
           <h1 ref={ref} className='section-header'>Languages</h1>
           
-          <div className='lang-grid'>
-            <div className="lang-card">
-              <h2>Frontend</h2>
+          <div className='language-ordering'>
+            <div className="lang-frontend">
+              <h2>Web Development</h2>
               <div className="language-logos">
                 <span title="HTML5"><i className="devicon-html5-plain-wordmark"></i></span>
                 <span title="CSS3"><i className="devicon-css3-plain-wordmark"></i></span>
@@ -17,8 +12,8 @@ const Languages = ( {ref} ) => {
               </div>
             </div>
 
-            <div className="lang-card">
-              <h2>Backend</h2>
+            <div className="lang-backend">
+              <h2>Web Development</h2>
               <div className="language-logos">
                 <span title="MySQL"><i class="devicon-mysql-original"></i></span>
                 <span title="Express.js"><i class="devicon-express-original"></i></span>
@@ -27,7 +22,7 @@ const Languages = ( {ref} ) => {
               </div>
             </div>
 
-            <div className="lang-card">
+            <div className="lang-general">
               <h2>General</h2>
               <div className="language-logos">
                 <span title="Python"><i className="devicon-python-plain-wordmark"></i></span>
@@ -37,7 +32,7 @@ const Languages = ( {ref} ) => {
               </div>
             </div>
 
-            <div className="lang-card">
+            <div className="lang-functional">
               <h2>Functional</h2>
               <div className="language-logos">
                 <span title="Racket"><i class="devicon-racket-plain"></i></span>
@@ -46,7 +41,3 @@ const Languages = ( {ref} ) => {
             </div>
           </div>
         </div>
-    );   
-}
-
-export default Languages
