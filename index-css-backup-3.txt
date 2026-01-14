@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --sidebar-width: 15rem;
-}
-
 div {
   padding: 0;
   margin: 0;
@@ -35,7 +31,7 @@ ul {
 
 .two-col-website {
   display: grid;
-  grid-template-columns: 15rem 1fr;
+  grid-template-columns: minmax(14rem, 20rem) 1fr;
   grid-template-areas:
   "navbar navbar"
   "sidebar header"
@@ -58,8 +54,8 @@ nav {
   position: sticky;
   top: 0;
   z-index: 50;
-  height: 5rem;
-  @apply bg-slate-500;
+  min-height: 3rem;
+  @apply bg-teal-700;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,10 +93,6 @@ button {
   @apply bg-gradient-to-r from-teal-100 to-slate-300;
 }
 
-.scroll-target {
-  scroll-margin-top: 8rem;
-}
-
 .section-header {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
@@ -109,7 +101,6 @@ button {
   letter-spacing: -0.02em;
   @apply text-slate-900;
   position: relative;
-  scroll-margin-top: 8rem;
 }
 
 .section-header::after {
@@ -124,16 +115,17 @@ button {
 
 
 .show-menu {
-  top: 5rem;
+  top: 0;
   margin: 0;
   padding: 0;
   display: grid;
   grid-area: sidebar;
-  position: fixed;
-  width: var(--sidebar-width);
+  position: sticky;
+  width: 250px;
   height: 100%;
+  width: 100%;
   line-height: 3rem;
-  @apply bg-gradient-to-r from-teal-500 to-slate-500;
+  @apply bg-teal-700;
   
 }
 
@@ -142,7 +134,7 @@ button {
 }
 
 .scroll-options-menu:hover {
-  @apply bg-gradient-to-r from-teal-600 to-slate-600;
+  @apply bg-teal-600;
   @apply text-white;
 }
 
@@ -151,12 +143,12 @@ button {
 }
 
 .scroll-button {
-  @apply text-white;
+  @apply text-slate-200;
   font-weight: 400;
 }
 
 .scroll-button:hover {
-  @apply text-slate-300;
+  @apply text-slate-700;
   font-weight: 400;
 }
 
@@ -174,7 +166,7 @@ button {
   "courses"
   "contacts";
   grid-auto-rows: auto;
-  background-color: yellow; /* For debugging */
+  background-color: yellow;
 }
 
 .descript-section {
@@ -339,12 +331,10 @@ button {
 }
 
 .years {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 1.25rem;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid;
+  border: 2px solid;
+  @apply border-slate-800;
+  margin: 0;
+  height: 100%;
 }
 
 

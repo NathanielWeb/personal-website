@@ -14,7 +14,7 @@ const Projects = ({ ref }) => {
                         <img alt='Department Store Shop' src={storeImage} className='project-image' />
                         <img alt='Department Store Shop' src={cartImage} className='project-image' />
                     </div>
-                    <a><h2 className='project-title'>Department Store</h2></a>
+                    <a href='https://github.com/NathanielWeb/department-store' target='_blank'><h2 className='project-title'>Department Store</h2></a>
                     <p className='project-desc'>
                         A full-stack e-commerce web application that features user authentication, products fetched from DummyJSON,
                         and the ability to add/remove products to cart and favourite databases. The backend of the application is made using Django 

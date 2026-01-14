@@ -4,10 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --sidebar-width: 15rem;
-}
-
 div {
   padding: 0;
   margin: 0;
@@ -21,6 +17,7 @@ main {
   position: absolute;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 ul {
@@ -35,7 +32,7 @@ ul {
 
 .two-col-website {
   display: grid;
-  grid-template-columns: 15rem 1fr;
+  grid-template-columns: minmax(14rem, 20rem) 1fr;
   grid-template-areas:
   "navbar navbar"
   "sidebar header"
@@ -57,9 +54,8 @@ nav {
   grid-area: navbar;
   position: sticky;
   top: 0;
-  z-index: 50;
-  height: 5rem;
-  @apply bg-slate-500;
+  min-height: 3rem;
+  @apply bg-gradient-to-r from-slate-50 to-slate-200;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,15 +64,15 @@ nav {
 }
 
 .menu-button {
-  @apply text-slate-50;
-  @apply bg-teal-600;
+  @apply text-slate-200;
+  @apply bg-teal-700;
   border-radius: 25%;
   /*margin-left: 250px; */
   padding: 15px;
 }
 
 .menu-button:hover {
-  @apply text-teal-800;
+  @apply text-teal-400;
   @apply bg-teal-200;
 }
 
@@ -94,11 +90,7 @@ button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  @apply bg-gradient-to-r from-teal-100 to-slate-300;
-}
-
-.scroll-target {
-  scroll-margin-top: 8rem;
+  @apply bg-gradient-to-r from-slate-50 to-slate-200
 }
 
 .section-header {
@@ -107,9 +99,8 @@ button {
   text-align: center;
   margin: 3rem 0 2rem;
   letter-spacing: -0.02em;
-  @apply text-slate-900;
+  color: black;
   position: relative;
-  scroll-margin-top: 8rem;
 }
 
 .section-header::after {
@@ -124,16 +115,17 @@ button {
 
 
 .show-menu {
-  top: 5rem;
+  top: 0;
   margin: 0;
   padding: 0;
   display: grid;
   grid-area: sidebar;
-  position: fixed;
-  width: var(--sidebar-width);
+  position: sticky;
+  width: 250px;
   height: 100%;
+  width: 100%;
   line-height: 3rem;
-  @apply bg-gradient-to-r from-teal-500 to-slate-500;
+  @apply bg-gradient-to-r from-slate-600 to-slate-700;
   
 }
 
@@ -142,8 +134,8 @@ button {
 }
 
 .scroll-options-menu:hover {
-  @apply bg-gradient-to-r from-teal-600 to-slate-600;
-  @apply text-white;
+  @apply bg-gradient-to-r from-teal-400 to-emerald-500;
+  @apply text-slate-800;
 }
 
 .hide-menu {
@@ -151,12 +143,12 @@ button {
 }
 
 .scroll-button {
-  @apply text-white;
+  @apply text-slate-200;
   font-weight: 400;
 }
 
 .scroll-button:hover {
-  @apply text-slate-300;
+  @apply text-slate-700;
   font-weight: 400;
 }
 
@@ -174,7 +166,7 @@ button {
   "courses"
   "contacts";
   grid-auto-rows: auto;
-  background-color: yellow; /* For debugging */
+  background-color: yellow;
 }
 
 .descript-section {
@@ -183,7 +175,7 @@ button {
   display: flex;
   align-items: center;
   gap: 2rem;
-  @apply bg-gradient-to-r from-teal-50 to-slate-50;
+  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
 }
 
 @media (max-width: 48rem) {
@@ -212,7 +204,7 @@ button {
 
 .projects-section {
   grid-area: projects;
-  @apply bg-slate-50;
+  @apply bg-gradient-to-r from-slate-50 to-slate-200;
   min-height: 30rem;
   align-items: center;
 }
@@ -267,7 +259,7 @@ button {
 
 .languages-section {
   grid-area: languages;
-  @apply bg-gradient-to-r from-teal-100 to-slate-300;
+  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
 }
 
 .lang-grid {
@@ -307,7 +299,7 @@ button {
 .education-section {
   grid-area: education;
   font-size: 1.25rem;
-  @apply bg-slate-50;
+  @apply bg-gradient-to-r from-slate-50 to-slate-200;
   min-height: 30rem;
 }
 
@@ -318,7 +310,7 @@ button {
 .courses-section {
   grid-area: courses;
   font-size: 1rem;
-  @apply bg-gradient-to-r from-teal-100 to-slate-300;
+  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
   min-height: 10rem;
   align-items: center;
 }
@@ -339,19 +331,17 @@ button {
 }
 
 .years {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 1.25rem;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid;
+  border: 2px solid;
+  @apply border-slate-800;
+  margin: 0;
+  height: 100%;
 }
 
 
 .contacts-section {
   grid-area: contacts;
   font-size: 2.5rem;
-  @apply bg-slate-50;
+  @apply bg-gradient-to-r from-slate-50 to-slate-200;
   min-height: 10rem;
   align-items: center;
 }
