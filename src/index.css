@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --sidebar-width: 15rem;
+}
+
 div {
   padding: 0;
   margin: 0;
@@ -17,7 +21,6 @@ main {
   position: absolute;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 ul {
@@ -32,7 +35,7 @@ ul {
 
 .two-col-website {
   display: grid;
-  grid-template-columns: minmax(14rem, 20rem) 1fr;
+  grid-template-columns: 15rem 1fr;
   grid-template-areas:
   "navbar navbar"
   "sidebar header"
@@ -54,8 +57,9 @@ nav {
   grid-area: navbar;
   position: sticky;
   top: 0;
-  min-height: 3rem;
-  @apply bg-gradient-to-r from-slate-50 to-slate-200;
+  z-index: 50;
+  height: 5rem;
+  @apply bg-gradient-to-r from-teal-100 to-slate-300;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -64,15 +68,15 @@ nav {
 }
 
 .menu-button {
-  @apply text-slate-200;
-  @apply bg-teal-700;
+  @apply text-slate-50;
+  @apply bg-teal-600;
   border-radius: 25%;
   /*margin-left: 250px; */
   padding: 15px;
 }
 
 .menu-button:hover {
-  @apply text-teal-400;
+  @apply text-teal-800;
   @apply bg-teal-200;
 }
 
@@ -90,7 +94,11 @@ button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  @apply bg-gradient-to-r from-slate-50 to-slate-200
+  @apply bg-gradient-to-r from-teal-100 to-slate-300;
+}
+
+.scroll-target {
+  scroll-margin-top: 8rem;
 }
 
 .section-header {
@@ -99,8 +107,9 @@ button {
   text-align: center;
   margin: 3rem 0 2rem;
   letter-spacing: -0.02em;
-  color: black;
+  @apply text-slate-900;
   position: relative;
+  scroll-margin-top: 8rem;
 }
 
 .section-header::after {
@@ -115,17 +124,16 @@ button {
 
 
 .show-menu {
-  top: 0;
+  top: 5rem;
   margin: 0;
   padding: 0;
   display: grid;
   grid-area: sidebar;
-  position: sticky;
-  width: 250px;
+  position: fixed;
+  width: var(--sidebar-width);
   height: 100%;
-  width: 100%;
   line-height: 3rem;
-  @apply bg-gradient-to-r from-slate-600 to-slate-700;
+  @apply bg-gradient-to-r from-teal-400 to-slate-400;
   
 }
 
@@ -134,8 +142,8 @@ button {
 }
 
 .scroll-options-menu:hover {
-  @apply bg-gradient-to-r from-teal-400 to-emerald-500;
-  @apply text-slate-800;
+  @apply bg-teal-600;
+  @apply text-white;
 }
 
 .hide-menu {
@@ -166,7 +174,7 @@ button {
   "courses"
   "contacts";
   grid-auto-rows: auto;
-  background-color: yellow;
+  background-color: yellow; /* For debugging */
 }
 
 .descript-section {
@@ -175,7 +183,7 @@ button {
   display: flex;
   align-items: center;
   gap: 2rem;
-  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
+  @apply bg-gradient-to-r from-teal-50 to-slate-50;
 }
 
 @media (max-width: 48rem) {
@@ -204,7 +212,7 @@ button {
 
 .projects-section {
   grid-area: projects;
-  @apply bg-gradient-to-r from-slate-50 to-slate-200;
+  @apply bg-slate-50;
   min-height: 30rem;
   align-items: center;
 }
@@ -259,7 +267,7 @@ button {
 
 .languages-section {
   grid-area: languages;
-  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
+  @apply bg-gradient-to-r from-teal-100 to-slate-300;
 }
 
 .lang-grid {
@@ -299,7 +307,7 @@ button {
 .education-section {
   grid-area: education;
   font-size: 1.25rem;
-  @apply bg-gradient-to-r from-slate-50 to-slate-200;
+  @apply bg-slate-50;
   min-height: 30rem;
 }
 
@@ -310,7 +318,7 @@ button {
 .courses-section {
   grid-area: courses;
   font-size: 1rem;
-  @apply bg-gradient-to-r from-teal-100 to-emerald-300;
+  @apply bg-gradient-to-r from-teal-100 to-slate-300;
   min-height: 10rem;
   align-items: center;
 }
@@ -331,17 +339,19 @@ button {
 }
 
 .years {
-  border: 2px solid;
-  @apply border-slate-800;
-  margin: 0;
-  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 1.25rem;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid;
 }
 
 
 .contacts-section {
   grid-area: contacts;
   font-size: 2.5rem;
-  @apply bg-gradient-to-r from-slate-50 to-slate-200;
+  @apply bg-slate-50;
   min-height: 10rem;
   align-items: center;
 }
