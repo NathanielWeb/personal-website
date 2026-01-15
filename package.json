@@ -1,8 +1,9 @@
 {
   "name": "personal-website",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://github.com/NathanielWeb/personal-website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
