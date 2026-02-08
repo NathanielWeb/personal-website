@@ -8,6 +8,7 @@
   --sidebar-width: 15rem;
 }
 
+
 div {
   padding: 0;
   margin: 0;
@@ -15,12 +16,13 @@ div {
 
 main {
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100%;
   top: 0;
   left: 0;
   position: absolute;
   margin: 0;
   padding: 0;
+  @apply bg-gradient-to-r from-slate-400 to-slate-500;
 }
 
 ul {
@@ -55,21 +57,27 @@ ul {
 
 nav {
   grid-area: navbar;
+  display: grid;
   position: sticky;
+  grid-template-areas:
+  "button top";
   top: 0;
   z-index: 50;
   height: 5rem;
-  @apply bg-slate-500;
+  @apply bg-gradient-to-r from-teal-500 to-slate-500;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
+  width: 15rem;
   margin: 0;
 }
 
+
+
 .menu-button {
   @apply text-slate-50;
-  @apply bg-teal-600;
+  @apply bg-teal-400;
   border-radius: 25%;
   /*margin-left: 250px; */
   padding: 15px;
