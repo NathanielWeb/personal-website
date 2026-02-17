@@ -8,7 +8,6 @@
   --sidebar-width: 15rem;
 }
 
-
 div {
   padding: 0;
   margin: 0;
@@ -343,7 +342,7 @@ button {
 }
 
 .years > ul > li > a:hover {
-  @apply text-slate-100;
+  @apply text-teal-500;
 }
 
 .years {
@@ -398,4 +397,29 @@ button {
 html, body {
   min-height: 100%;
   margin: 0;
+}
+
+@media (max-width: 400px) {
+  main.two-col-website {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "navbar"
+      "main-content";
+    grid-template-rows: auto;
+    gap: 0;
+    position: relative;
+  }
+
+  .show-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: grid;
+    grid-auto-rows: auto;
+  }
+
 }
