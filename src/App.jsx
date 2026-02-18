@@ -69,7 +69,7 @@ const App = () => {
       </nav>
       
       <Header name={name} />
-      <Menu displayMenu={displayMenu} references={references}/>
+      <Menu displayMenu={displayMenu} references={references} closeMenu={() => setDisplayMenu(false)}/>
       <div className="main-content">
         
         <Description description={description} ref={descriptionRef}/>

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
-const Menu = ({ displayMenu, references }) => {
+const Menu = ({ displayMenu, references, closeMenu }) => {
     //Make sure to implicity return the list element so that it renders
     return (
         <aside className={displayMenu ? "show-menu" : "hide-menu"}>
@@ -13,6 +13,7 @@ const Menu = ({ displayMenu, references }) => {
                                 if(item.ref.current) { //check if the element at the reference is rendered
                                     item.ref.current.scrollIntoView({ behavior: 'smooth' });
                                 }
+                                closeMenu();
                             }}>{item.name}</button>
                         </li>
                     )}
