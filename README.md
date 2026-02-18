@@ -4,3 +4,6 @@ This is my personal portfolio website built with **React**. It showcases my proj
 
 ## Live Demo 
 Check out the live website here: [My Portfolio](https://nathanielweb.github.io/personal-website/)
+
+## Additional notice:
+Commits were made using my school account webst149. 
